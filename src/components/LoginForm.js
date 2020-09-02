@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import TextInput, { TEXTINPUT_TYPE } from './forms/TextInput'
 
-export default class CreateUserForm extends Component {
+export default class LoginForm extends Component {
 
 	state = {
 		email: '',
@@ -12,7 +12,7 @@ export default class CreateUserForm extends Component {
 	onSubmit = (e) => {
 		e.preventDefault();
 		const { email, password } = this.state;
-		this.props.createUser(email, password);
+		this.props.logIn(email, password);
 	}
 
 	onInputChange = (newValue) => {
@@ -34,7 +34,7 @@ export default class CreateUserForm extends Component {
 
 		return (
 			<form onSubmit={this.onSubmit}>
-				<h1>Create your account</h1>
+				<h1>Log in form</h1>
 				
 				{this.getErrorMessage()}
 
@@ -52,7 +52,7 @@ export default class CreateUserForm extends Component {
 					onChange={this.onInputChange}
 				/>
 
-				<button>Create account</button>
+				<button>Log in</button>
 			</form>
 		);
 	}
