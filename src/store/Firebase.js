@@ -1,6 +1,6 @@
 
-import React from 'react';
 import firebase from 'firebase/app';
+import 'firebase/firebase-auth';
 
 export const USERS_COLLECTION = 'users';
 export const PROJECTS_COLLECTION = 'projects';
@@ -16,16 +16,23 @@ const config = {
 	appId: "1:244153524026:web:4be53459b91ca7bed27a03"
 };
 
-export class FirebaseManager {
+class Firebase {
 	constructor() {
 		firebase.initializeApp(config);
+		this.auth_manager = firebase.auth();
 	}
+
+	fetchCurrentUser = () => this.auth_manager.currentUser;
+
+	createUser = (email, password) => this.auth_manager.createUserWithEmailAndPassword(email, password);
+	
+	logIn = (email, password) => this.auth_manager.signInWithEmailAndPassword(email, password);
+	 
+	logOut = () => this.auth_manager.signOut();
+	
+	sendPasswordResetEmail = email => this.auth_manager.sendPasswordResetEmail(email);
+	 
+	updatePassword = password => this.auth_manager.currentUser.updatePassword(password);
 }
 
-export const FirebaseContext = React.createContext(null);
-
-export const withFirebase = Component => props => (
-	<FirebaseContext.Consumer>
-		{firebase => <Component {...props} firebase={firebase} />}
-	</FirebaseContext.Consumer>
-);
+export const FirebaseManager = new Firebase();

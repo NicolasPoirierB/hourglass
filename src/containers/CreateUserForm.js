@@ -1,16 +1,23 @@
 
 
+
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
-import App from '../App';
+import { createUser } from '../reducers/user';
+
+import CreateUserForm from '../components/CreateUserForm';
 
 const mapStateToProps = (state, ownProps) => {
-	return {};
+	return {
+		auth: state.auth,
+	};
 };
 
 export default withRouter(connect(
 	mapStateToProps,
-	dispatch => bindActionCreators({}, dispatch)
-)(App));
+	dispatch => bindActionCreators({
+		createUser,
+	}, dispatch)
+)(CreateUserForm));

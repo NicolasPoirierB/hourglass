@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import CreateUserForm from './containers/CreateUserForm';
 
 function App() {
 	return (
 		<div>
-
+			<CreateUserForm />
 		</div>
 	);
 }
