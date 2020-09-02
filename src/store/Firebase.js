@@ -1,4 +1,5 @@
 
+import React from 'react';
 import firebase from 'firebase/app';
 
 export const USERS_COLLECTION = 'users';
@@ -14,3 +15,17 @@ const config = {
 	messagingSenderId: "244153524026",
 	appId: "1:244153524026:web:4be53459b91ca7bed27a03"
 };
+
+export class FirebaseManager {
+	constructor() {
+		firebase.initializeApp(config);
+	}
+}
+
+export const FirebaseContext = React.createContext(null);
+
+export const withFirebase = Component => props => (
+	<FirebaseContext.Consumer>
+		{firebase => <Component {...props} firebase={firebase} />}
+	</FirebaseContext.Consumer>
+);
