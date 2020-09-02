@@ -22,7 +22,19 @@ class Firebase {
 		this.auth_manager = firebase.auth();
 	}
 
-	fetchCurrentUser = () => this.auth_manager.currentUser;
+	fetchCurrentUser = () => {
+		const user = this.auth_manager.currentUser;
+		console.log('complete user object');
+		console.dir(user);
+
+		return user ? {
+			display_name: user.displayName,
+			email: user.email,
+			uid: user.uid,
+			creation_time: user.metadata.creationTime,
+			last_signin_time: user.metadata.lastSignInTime,
+		} : null;
+	}
 
 	createUser = (email, password) => this.auth_manager.createUserWithEmailAndPassword(email, password);
 	
