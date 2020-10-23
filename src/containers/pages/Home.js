@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
-import Home from '../components/Home';
+import Home from '../../components/pages/Home';
+import withAuth from '../withAuth';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		auth: state.auth,
 	};
 };
 
-export default withRouter(connect(
+export default withAuth(withRouter(connect(
 	mapStateToProps,
 	dispatch => bindActionCreators({}, dispatch)
-)(Home));
+)(Home)));

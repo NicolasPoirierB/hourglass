@@ -80,7 +80,7 @@ export function logOut() {
 
 
 const defaultAuthState = {
-	is_logged_in: false,
+	is_logged_in: true,
 	is_creating_account: false,
 	is_logging_in: false,
 	error: null,

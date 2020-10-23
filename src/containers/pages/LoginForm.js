@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
-import { createUser } from '../reducers/user';
+import { logIn } from '../../reducers/user';
 
-import CreateUserForm from '../components/CreateUserForm';
+import LoginForm from '../../components/pages/LoginForm';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
@@ -18,6 +18,6 @@ const mapStateToProps = (state, ownProps) => {
 export default withRouter(connect(
 	mapStateToProps,
 	dispatch => bindActionCreators({
-		createUser,
+		logIn,
 	}, dispatch)
-)(CreateUserForm));
+)(LoginForm));

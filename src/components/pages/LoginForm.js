@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
-import TextInput, { TEXTINPUT_TYPE } from './forms/TextInput'
-import { ROUTES } from '../constants';
-import Button from './ui/Button';
+import TextInput, { TEXTINPUT_TYPE } from '../forms/TextInput'
+import { ROUTES } from '../../constants';
+import Button from '../ui/Button';
 
 import styled from 'styled-components';
 

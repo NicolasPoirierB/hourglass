@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
-import TextInput, { TEXTINPUT_TYPE } from './forms/TextInput'
+import TextInput, { TEXTINPUT_TYPE } from '../forms/TextInput'
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
+import { ROUTES } from '../../constants';
 
 export default class CreateUserForm extends Component {
 
